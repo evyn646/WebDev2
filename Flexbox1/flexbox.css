@@ -1,0 +1,33 @@
+.flexContainer {
+    display: flex; 
+    justify-content: space-between; 
+    flex-direction: row;
+    flex-wrap:wrap;
+    
+  }
+  
+  h1 {display: flex; justify-content: center;}
+  p {display: flex; justify-content: center;}
+
+  #left {
+    border: solid 5px green;
+    background-color: lightgreen;
+    width: 100%;
+    height: 500px;
+  }
+
+  #middle{
+    flex-grow: 1;
+    border: double 5px blue;
+    background-color: aqua;
+    height: 500px;
+  }
+
+  #right{
+    flex-grow: 1;
+    border: double 5px brown;
+    background-color: bisque;
+    height: 500px;
+  }
+  
+

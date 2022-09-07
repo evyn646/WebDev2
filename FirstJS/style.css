@@ -1,0 +1,58 @@
+body { 
+    background-color: lightcyan;
+}
+
+h1 {
+    display: flex; 
+    justify-content:center; 
+    color: rgb(94, 86, 109);
+}
+.intro {
+    color: rgb(94, 86, 109);
+}
+
+.fortune {
+    color: rgb(94, 86, 109);
+}
+
+#red {
+    display: flex; 
+    justify-content: center; 
+    align-content: column; 
+    border: double 5px darkred;
+    background-color: lightpink;
+    color: lightpink;
+    height: 500px;
+}
+
+#yellow {
+    display: flex; 
+    justify-content: center; 
+    align-content: column; 
+    border: double 5px yellow;
+    background-color: lightyellow;
+    height: 500px;
+}
+
+#green {
+    display: flex; 
+    justify-content: center; 
+    align-content: column; 
+    border: double 5px darkgreen;
+    background-color: lightgreen;
+    height: 500px;
+}
+
+#blue {
+    display: flex; 
+    justify-content: center; 
+    align-content: column; 
+    border: double 5px darkblue;
+    background-color: lightskyblue;
+    height: 500px;
+}
+
+
+
+
+

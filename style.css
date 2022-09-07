@@ -1,56 +1,13 @@
-body { 
-    background-color: lightcyan;
-}
-
-h1 {
-    display: flex; 
-    justify-content:center; 
-    color: rgb(94, 86, 109);
-}
-
-p {
-    display: flex; 
-    justify-content:center; 
-    color: rgb(94, 86, 109);
-}
-
-#red {
-    display: flex; 
-    justify-content: center; 
-    align-content: column; 
-    border: double 5px darkred;
-    background-color: lightpink;
-    height: 500px;
-}
-
-#yellow {
-    display: flex; 
-    justify-content: center; 
-    align-content: column; 
-    border: double 5px yellow;
-    background-color: lightyellow;
-    height: 500px;
-}
-
-#green {
-    display: flex; 
-    justify-content: center; 
-    align-content: column; 
-    border: double 5px darkgreen;
-    background-color: lightgreen;
-    height: 500px;
-}
-
-#blue {
-    display: flex; 
-    justify-content: center; 
-    align-content: column; 
-    border: double 5px darkblue;
-    background-color: lightskyblue;
-    height: 500px;
-}
-
-
-
-
+body {color:black;font-family:'Times New Roman', Times, serif;background-color: rgb(193, 141, 241);}
+table {background:rgb(241, 172, 23);}
+.address {font-size: small;}
+.listItems {color:rgb(110, 142, 47);}
+.tableHeader {color:rgb(200, 200, 15);}
+.listHeader {color:green;}
+.p {color:aqua;}
+.title {color:blue;}
+.question {font-size:medium;color:rgb(55, 5, 172);}
+.emoji {font-size: larger;}
+li:hover{font-weight:bold;}
+th:hover{color:red}
 

@@ -71,7 +71,12 @@ function addChosenItem(el){
   // document.getElementById("addButton").addEventListener("click", moveTochosenList(1));
 
   addButt.onclick = () => {
-    moveTochosenList(index);
+    for(let i=0; i< isSelected.length; i++) {
+      if(isSelected[i]){
+        moveTochosenList(i);
+      }
+      
+    }
 
   }
 
@@ -85,33 +90,26 @@ function addChosenItem(el){
 // highlighting
 
   for(let el of document.querySelectorAll("#options li")) {
+    isSelected.push(false);
     el.onclick = () => {
-      isSelected.push(false);
+    
       let allItems = Array.from(document.querySelectorAll("#options li"));
       let index = allItems.indexOf(el);
 
       isSelected[index] = !isSelected[index];
 
-      if (isSelected([])){
-        el.getElementsByClassName.backgroundColor = "blue";
+      if (isSelected[index]){
+        el.style.backgroundColor = "blue";
       }
 
       else {
-        el.getElementsByClassName.backgroundColor = "green";
+        el.style.backgroundColor = "green";
       }
     console.log("clicked");
     }
 
   }
 
-  // let ab = document.createElement('li');
-
-  // ArrayList<Item> optionsL;
-  // ArrayList<Item> chosenL;
-
-  // let ab = listI 
-  // listI = new li();
-  // chosenL.add(listI);
 
 
 

@@ -22,8 +22,6 @@ function addOptionsItem(el){
 //move function
 
 function moveTooptionsList(index){
-   //   let optionsL = Array.from(document.querySelectorAll("#options"));
-   //   let chosenL = Array.from(document.querySelectorAll("#chosen"));
       optionsList.push(chosenList[index]);
       addOptionsItem(chosenList[index]);
       chosenList.pop(index);
@@ -53,8 +51,6 @@ function addChosenItem(el){
 //move function
 
    function moveTochosenList(index){
-    //let chosenL = Array.from(document.querySelectorAll("#chosen"));
-    //let optionsL = Array.from(document.querySelectorAll("#options"));
     chosenList.push(optionsList[index]);
     addChosenItem(optionsList[index]);
     optionsList.pop(index);
@@ -70,28 +66,16 @@ function addChosenItem(el){
 
   // document.getElementById("addButton").addEventListener("click", moveTochosenList(1));
 
-  addButt.onclick = () => {
-    for(let i=0; i< isSelected.length; i++) {
-      if(isSelected[i]){
-        moveTochosenList(i);
-      }
-      
-    }
-
-  }
-
-  removeButt.onclick = () => {
-    moveTooptionsList(index);
-
-  }
-
   let isSelected = [];
+
 
 // highlighting
 
   for(let el of document.querySelectorAll("#options li")) {
     isSelected.push(false);
+
     el.onclick = () => {
+
     
       let allItems = Array.from(document.querySelectorAll("#options li"));
       let index = allItems.indexOf(el);
@@ -107,8 +91,32 @@ function addChosenItem(el){
       }
     console.log("clicked");
     }
+  
+    addButt.onclick = () => {
+      for(let el of document.querySelectorAll("#options li")) {
+      
+        if(el.style.backgroundcolor = "blue"){
+          moveTochosenList(index);
+        }
+        else{};
+      }
+      }
 
-  }
+      removeButt.onclick = () => {
+        for(let el of document.querySelectorAll("#chosen li")) {
+      
+          if(el = clicked){
+            moveTooptionsList(index);
+          }
+          else{};
+        }
+    
+      }
+  
+    }
+
+
+  
 
 
 

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.use(express.static('public'));
+
 
 let people = [
     {firstName: "bob", lastName: "jones", username: "bobj", password: "bobby"},
@@ -13,6 +13,18 @@ let newUser;
 let currentUser;
 
 app.use(express.urlencoded({extended:false}));
+
+app.use(`/page.html`, (req,res,next) => {
+    console.log('middleware');
+    if(currentUser){
+        next();
+        return;
+    }
+    res.write('No!');
+    res.end();
+});
+
+app.use(express.static('public'));
 
 function htmlStart(res, title){
     res.write(`<!DOCTYPE html>
@@ -38,28 +50,32 @@ function htmlEnd(res){
 //     res.send("hi:" + req.params.blarg);
 // });
 
-app.get(`/page`, (req,res) => {
-    console.log("welcome to special page");
-    htmlStart(res, "Document");
-    if(currentUser);
 
-    res.write(` <p> hello1 ${currentUser.firstName} </p>`);
-    htmlEnd(res);
-});
+
+// app.post(`/page`, (req,res) => {
+//     console.log("welcome to special page");
+//     if(currentUser);
+//     htmlStart(res, "Document");
+//     res.write(` <p> hello ${currentUser.firstName} </p>`);
+//     htmlEnd(res);
+//     res.end();
+// });
+
 
 app.post(`/login`, (req,res) => {
 
-for (person of people){
-    if (req.body.username === person.username && req.body.password === person.password) 
-    {
-        currentUser = person;
-    //currentUser=people[people.findIndex((p) => req.body.username === p.username && 
-        //req.body.password === p.password)];
-     res.redirect(`/page`)
-    };
-
-    // res.write('you are incorrect');
-};
+    for (person of people){
+        if (req.body.username === person.username && req.body.password === person.password) 
+        {
+            currentUser = person;
+            // currentUser=people[people.findIndex((p) => req.body.username === p.username && 
+            // req.body.password === p.password)];
+            res.redirect(`/page.html`);
+            return;
+        }
+    }
+    res.write('you are incorrect');
+    res.end();
 });
 
 
@@ -67,16 +83,25 @@ app.post(`/register`, (req, res) => {
     console.log("Hello there:" +req.body.firstName);
     newUser = {firstName: req.body.firstName, lastName: req.body.lastName, 
         username: req.body.username, password: req.body.password};
-    people.push({newUser});
-        currentUser = newUser;
-        res.redirect(`/page`);
+    for (person of people){
+        if(req.body.username === person.username){
+            res.write('please enter a different username');
+            res.end();
+            return;
+        }
+    }
+    people.push(newUser);
+    console.log(people);
+    currentUser = newUser;
 
-       console.log(`<ul>`);
+    res.redirect(`/page.html`);
 
-        for (let person of people){
-            console.log(`<li> ${person.firstName} ${person.lastName} ${person.username} ${person.password} <li>`)
-        };
-        console.log(`<ul`);
+    console.log(`<ul>`);
+
+    for (let person of people){
+        console.log(`<li> ${person.firstName} ${person.lastName} ${person.username} ${person.password} <li>`)
+    };
+    console.log(`<ul`);
 
 });
 

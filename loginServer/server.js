@@ -20,8 +20,10 @@ app.use(`/page.html`, (req,res,next) => {
         next();
         return;
     }
-    res.write('No!');
-    res.end();
+    htmlStart(res, 'no!');
+    res.write('please login or register');
+    res.write(`<a href = "/index.html"> <button> login/register </button> </a>`)
+    htmlEnd(res);
 });
 
 app.use(express.static('public'));
@@ -62,7 +64,7 @@ function htmlEnd(res){
 // });
 
 
-app.post(`/login`, (req,res) => {
+app.post(`/login.html`, (req,res) => {
 
     for (person of people){
         if (req.body.username === person.username && req.body.password === person.password) 
@@ -79,14 +81,16 @@ app.post(`/login`, (req,res) => {
 });
 
 
-app.post(`/register`, (req, res) => {
+app.post(`/register.html`, (req, res) => {
     console.log("Hello there:" +req.body.firstName);
     newUser = {firstName: req.body.firstName, lastName: req.body.lastName, 
         username: req.body.username, password: req.body.password};
     for (person of people){
         if(req.body.username === person.username){
+            htmlStart(res, 'change');
             res.write('please enter a different username');
-            res.end();
+            res.write(`<a href = "/register.html"> <button> change </button></a>`);
+            htmlEnd(res);
             return;
         }
     }

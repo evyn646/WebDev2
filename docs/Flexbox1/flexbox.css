@@ -9,7 +9,7 @@
   h1 {display: flex; justify-content: center;}
   p {display: flex; justify-content: center;}
 
-  #left {
+  #left { 
     border: solid 5px green;
     background-color: lightgreen;
     width: 100%;

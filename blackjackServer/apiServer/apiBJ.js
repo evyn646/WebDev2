@@ -32,84 +32,79 @@ let game = {playerHand:[], dealerHand:[], winner: '', message: ''};
 
     let count = 0;
         
-    for (let i = 1; i <= 13; i++) {
+    for (let i = 2; i <= 14; i++) {
         
-        deck.push({suit: `Hearts`, value: i});
+        deck.push({suit: `hearts`, value: i});
     }
-    for (let i = 1; i <= 13; i++) {
-        deck.push({suit: `Spades`, value: i});
+    for (let i = 2; i <= 14; i++) {
+        deck.push({suit: `spades`, value: i});
     }
-    for (let i = 1; i <= 13; i++) {
-        deck.push({suit: `Clubs`, value: i});
+    for (let i = 2; i <= 14; i++) {
+        deck.push({suit: `clubs`, value: i});
     }
-    for (let i = 1; i <= 13; i++) {
-        deck.push({suit: `Diamonds`, value: i});
+    for (let i = 2; i <= 14; i++) {
+        deck.push({suit: `diamonds`, value: i});
     }	
  }    
         
-function valueName(){
+// function valueName(){
     
-    let name = "";
+//     let j = "";
     
-    if (this.value == 1) {		
-        name = "Ace";
-        cardValue = 1; //or 11
-    }
-    else if (this.value == 2) {
-        name = "Two";
-        cardValue = 2;
-    }
-    else if (this.value == 3) {
-        name = "Three";
-        cardValue = 3;
-    }
-    else if (this.value == 4) {
-        name = "Four";
-        cardValue = 4;
-    }
-    else if (this.value == 5) {
-        name = "Five";
-        cardValue = 5;
-    }
-    else if (this.value == 6) {
-        name = "Six";
-        cardValue = 6;
-    }
-    else if (this.value == 7) {
-        name = "Seven";
-        cardValue = 7;
-    }
-    else if (this.value == 8) {
-        name = "Eight";
-        cardValue = 8;
-    }
-    else if (this.value == 9) {
-        name = "Nine";
-        cardValue = 9;
-    }
-    else if (this.value == 10) {
-        name = "Ten";
-        cardValue = 10;
-    }
-    else if (this.value == 11) {
-        name = "Jack";
-        cardValue = 10;
-    }
-    else if (this.value == 12) {
-        name = "Queen";
-        cardValue = 10;
-    }
-    else if (this.value == 13) {
-        name = "King";
-        cardValue = 10;
-    } 
-    return name; 
-}
-
-// function theCardName() {
-//     return deck.suit() + " " + this.value;
+//     if (this.value == 14) {		
+//         j = "ace";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 2) {
+//         j = "2";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 3) {
+//         j = "3";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 4) {
+//         j = "4";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 5) {
+//         j = "5";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 6) {
+//         j = "6";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 7) {
+//         j = "7";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 8) {
+//         j = "8";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 9) {
+//         j = "9";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 10) {
+//         j = "10";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 11) {
+//         j = "jack";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 12) {
+//         j = "queen";
+//         deck.push({name: j});
+//     }
+//     else if (this.value == 13) {
+//         j = "king";
+//         deck.push({name: j});
+//     } 
+//     return j; 
 // }
-// console.log(theCardName());
 
 function shuffleDeck(){
 
@@ -127,12 +122,13 @@ function shuffleDeck(){
 function restartGame(){
 
     buildDeck();
+
     shuffleDeck();
     game= {
         playerHand: [],
         dealerHand: [], 
         winner: '', 
-        message: ''
+        message: '',
     };
 
     while (game.playerHand.length <2){
@@ -141,7 +137,9 @@ function restartGame(){
     while (game.dealerHand.length <2){
         dealCards(deck, game.dealerHand);
     }
+    console.log("player hand");
     console.log(game.playerHand);
+    console.log("dealer hand");
     console.log(game.dealerHand);
     console.log(theCardValue(game.playerHand));
     console.log(theCardValue(game.dealerHand));
@@ -186,10 +184,31 @@ app.post('/stand' , (req,res) => {
 
 function theCardValue(hand)
 {
+    console.log("hand value");
+    console.log(hand);
     let handVal = 0;
+    let aceCounter = 0;
+
     for (card of hand){
+        if(card.value === 14){
+            aceCounter = aceCounter +1;
+        }
+
+        if (card.value === 14){
+            handVal = handVal +11;
+        }
+        else if (card.value > 10){
+            handVal = handVal +10;
+        }
+        else{
         handVal = handVal + card.value;
+        }
     }
+
+    if(handVal > 21 && aceCounter >0){
+        handVal = handVal -10;
+    }
+
     return handVal;
 }
     

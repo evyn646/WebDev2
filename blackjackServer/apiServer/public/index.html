@@ -4,20 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src = "script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <h1> blackjack</h1>
+<h1> blackjack</h1>
+    <div class = "flexContainer">
 
-    <form method="post" action="/startGame"> 
-            <input type="submit" value="Start Game">
-    </form>
-    <form method="post" action="/hit"> 
-        <input type="submit" value="Hit">
-    </form>
-    <form method="post" action="/stand"> 
-        <input type="submit" value="Stand">
-    </form>
-    
+        <div class = "forms">
+            <button id = "startGame" type = "button"> start game </button>
+            <button id = "hit" type = "button"> hit </button>
+            <button id = "stand" type = "button"> stand </button>
+        </div>
+
+        <p> </p>
+
+        <div class = "cards"> 
+
+            <div id = "playerHand"> 
+                
+            </div>
+
+            <div id = "dealerHand">
+               
+            </div>
+
+        </div>
+        <div class = text>
+            
+        </div>
+
+    </div>
 </body>
 </html>

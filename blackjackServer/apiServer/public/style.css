@@ -1,0 +1,82 @@
+body {color:white;font-family:'Times New Roman', Times, serif;background-color: green;}
+p {height: 50px;}
+
+.flexContainer {
+    display: flex; 
+    justify-content: space-between; 
+    flex-direction: column;
+  }
+
+.forms{
+  display: flex; 
+  justify-content: space-between; 
+  flex-direction: row;
+}
+
+.cards{
+  display: flex; 
+  justify-content: space-between; 
+  flex-direction: row;
+}
+
+#playerHand{
+  display: flex; 
+  justify-content: start; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%
+}
+
+#dealerHand{
+  display: flex; 
+  justify-content: start; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%
+}
+
+h1 {display: flex; justify-content: center;}
+
+.image{
+    width: 100px;
+    height: 150px;
+}
+
+#startGame{
+  border: solid 5px gray;
+  background-color: darkgray;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#hit{
+  border: solid 5px gray;
+  background-color: darkgray;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#stand{
+  border: solid 5px gray;
+  background-color: darkgray;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#startGame:hover{
+  background-color: red
+}
+
+#hit:hover{
+  background-color: red
+}
+
+#stand:hover{
+  background-color: red
+}
+
+
+

@@ -2,239 +2,268 @@
 function startButton() {
     console.log('hello');
 
-    fetch('http://localhost:3000/startGame', {method:'POST'})
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+    fetch('/startGame', { method: 'POST' })
+        .then((response) => response.json())
+        .then((game) => {
 
-    //playerHand
+            //playerHand
 
-    let playerHanD = document.querySelector("div#playerHand");
-    while (playerHanD.firstChild){
-        playerHanD.removeChild(playerHanD.firstChild);
-    }
+            console.log(game.playerHand);
 
-    this.img = document.createElement("img");
-    
-for(card of game.playerHand){
-    let j = card.value;
-    if (card.value == 11) {
-        j = "jack";
-       
-    }
-    else if (card.value == 12) {
-        j = "queen";
-     
-    }
-    else if (card.value == 13) {
-        j = "king";
-        
-    } 
-    if (card.value == 14) {		
-        j = "ace";
-      
-    }
-    return j;
+            let playerHanD = document.querySelector("div#playerHand");
+            while (playerHanD.firstChild) {
+                console.log("removing child from player hand")
+                playerHanD.removeChild(playerHanD.firstChild);
+            }
+
+            let imgPlayer = document.createElement("img");
+
+            for (card of game.playerHand) {
+                let j = card.value;
+                if (card.value == 11) {
+                    j = "jack";
+
+                }
+                else if (card.value == 12) {
+                    j = "queen";
+
+                }
+                else if (card.value == 13) {
+                    j = "king";
+
+                }
+                if (card.value == 14) {
+                    j = "ace";
+
+                }
+
+                imgPlayer.src = `/images/${j}_of_${card.suit}.png`;
+                imgPlayer.setAttribute("width", 100);
+                imgPlayer.setAttribute("height", 150);
+                console.log(imgPlayer.src);
+                playerHanD.appendChild(imgPlayer);
+            }
+
+
+            //dealerHand
+            console.log(game.dealerHand);
+
+            let dealerHanD = document.querySelector("div#dealerHand");
+            while (dealerHanD.firstChild) {
+                console.log("removing child from dealer hand")
+                dealerHanD.removeChild(dealerHanD.firstChild);
+            }
+
+            let imgDealer = document.createElement("img");
+
+            for (card of game.dealerHand) {
+                let k = card.value;
+                if (card.value == 11) {
+                    k = "jack";
+
+                }
+                else if (card.value == 12) {
+                    k = "queen";
+
+                }
+                else if (card.value == 13) {
+                    k = "king";
+
+                }
+                if (card.value == 14) {
+                    k = "ace";
+
+
+                }
+
+                imgDealer.src = `/images/${k}_of_${card.suit}.png`;
+                imgDealer.setAttribute("width", 100);
+                imgDealer.setAttribute("height", 150);
+                console.log(imgDealer.src);
+                dealerHanD.appendChild(imgDealer);
+            }
+
+
+            let textStuff = document.querySelector("#gameState")
+            textStuff.textContent = `game state: winner: ${game.winner} message: ${game.message}`;
+        })
+
 }
-    this.img.src = `/images/ ${j}_of_${game.playerHand.suit}.png`;
-    src = getElementById("image");
-    src.appendChild(this.img);
-
-    //dealerHand
-
-    let dealerHanD = document.querySelector("div#dealerHand");
-    while (dealerHanD.firstChild){
-        dealerHanD.removeChild(dealerHanD.firstChild);
-    }
-
-    this.img = document.createElement("img");
-    
-for(card of game.dealerHand){
-    let k = card.value;
-    if (card.value == 11) {
-        k = "jack";
-       
-    }
-    else if (card.value == 12) {
-        k = "queen";
-     
-    }
-    else if (card.value == 13) {
-        k = "king";
-        
-    } 
-    if (card.value == 14) {		
-        k = "ace";
-      
-        
-    }
-    return k;
-}
-    this.img.src = `/images/ ${j}_of_${game.dealerHand.suit}.png`;
-    src = getElementById("image");
-    src.appendChild(this.img);
-   
-    let textStuff = document.querySelector("div.text")
-    let p = document.createElement('p');
-    p.textContent = `game state: ${game.winner} ${game.message}`;
-    textStuff.appendChild(p);
-    
-  
-  }
 
 function hitButton() {
-  fetch('http://localhost:3000/hit', {method:'POST'})
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+    fetch('/hit', { method: 'POST' })
+        .then((response) => response.json())
+        .then((game) => {
 
-    //playerHand
+            //playerHand
 
-    let playerHanD = document.querySelector("div#playerHand");
-    while (playerHanD.firstChild){
-        playerHanD.removeChild(playerHanD.firstChild);
-    }
+            console.log(game.playerHand);
 
-    this.img = document.createElement("img");
-    
-for(card of game.playerHand){
-    let j = card.value;
-    if (card.value == 11) {
-        j = "jack";
-       
-    }
-    else if (card.value == 12) {
-        j = "queen";
-     
-    }
-    else if (card.value == 13) {
-        j = "king";
-        
-    } 
-    if (card.value == 14) {		
-        j = "ace";
-      
-    }
-    return j;
-}
-    this.img.src = `/images/ ${j}_of_${game.playerHand.suit}.png`;
-    src = getElementById("image");
-    src.appendChild(this.img);
+            let playerHanD = document.querySelector("div#playerHand");
+            while (playerHanD.firstChild) {
+                console.log("removing child from player hand")
+                playerHanD.removeChild(playerHanD.firstChild);
+            }
 
-    //dealerHand
+            let imgPlayer = document.createElement("img");
 
-    let dealerHanD = document.querySelector("div#dealerHand");
-    while (dealerHanD.firstChild){
-        dealerHanD.removeChild(dealerHanD.firstChild);
-    }
+            for (card of game.playerHand) {
+                let j = card.value;
+                if (card.value == 11) {
+                    j = "jack";
 
-    this.img = document.createElement("img");
-    
-for(card of game.dealerHand){
-    let k = card.value;
-    if (card.value == 11) {
-        k = "jack";
-       
-    }
-    else if (card.value == 12) {
-        k = "queen";
-     
-    }
-    else if (card.value == 13) {
-        k = "king";
-        
-    } 
-    if (card.value == 14) {		
-        k = "ace";
-      
-        
-    }
-    return k;
-}
-    this.img.src = `/images/ ${j}_of_${game.dealerHand.suit}.png`;
-    src = getElementById("image");
-    src.appendChild(this.img);
-   
-    let textStuff = document.querySelector("div.text")
-    let p = document.createElement('p');
-    p.textContent = `game state: ${game.winner} ${game.message}`;
-    textStuff.appendChild(p);
+                }
+                else if (card.value == 12) {
+                    j = "queen";
+
+                }
+                else if (card.value == 13) {
+                    j = "king";
+
+                }
+                if (card.value == 14) {
+                    j = "ace";
+
+                }
+
+                imgPlayer.src = `/images/${j}_of_${card.suit}.png`;
+                imgPlayer.setAttribute("width", 100);
+                imgPlayer.setAttribute("height", 150);
+                console.log(imgPlayer.src);
+                playerHanD.appendChild(imgPlayer);
+            }
+
+
+            //dealerHand
+            console.log(game.dealerHand);
+
+            let dealerHanD = document.querySelector("div#dealerHand");
+            while (dealerHanD.firstChild) {
+                console.log("removing child from dealer hand")
+                dealerHanD.removeChild(dealerHanD.firstChild);
+            }
+
+            let imgDealer = document.createElement("img");
+
+            for (card of game.dealerHand) {
+                let k = card.value;
+                if (card.value == 11) {
+                    k = "jack";
+
+                }
+                else if (card.value == 12) {
+                    k = "queen";
+
+                }
+                else if (card.value == 13) {
+                    k = "king";
+
+                }
+                if (card.value == 14) {
+                    k = "ace";
+
+
+                }
+
+                imgDealer.src = `/images/${k}_of_${card.suit}.png`;
+                imgDealer.setAttribute("width", 100);
+                imgDealer.setAttribute("height", 150);
+                console.log(imgDealer.src);
+                dealerHanD.appendChild(imgDealer);
+            }
+
+
+            let textStuff = document.querySelector("#gameState")
+            textStuff.textContent = `game state: winner: ${game.winner} message: ${game.message}`;
+        })
 }
 
 function standButton() {
-    fetch('http://localhost:3000/stand', {method:'POST'})
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+    fetch('/stand', { method: 'POST' })
+        .then((response) => response.json())
+        .then((game) => {
 
-    //playerHand
+            //playerHand
 
-    let playerHanD = document.querySelector("div#playerHand");
-    while (playerHanD.firstChild){
-        playerHanD.removeChild(playerHanD.firstChild);
-    }
+            console.log(game.playerHand);
 
-    this.img = document.createElement("img");
-    
-for(card of game.playerHand){
-    let j = card.value;
-    if (card.value == 11) {
-        j = "jack";
-       
-    }
-    else if (card.value == 12) {
-        j = "queen";
-     
-    }
-    else if (card.value == 13) {
-        j = "king";
-        
-    } 
-    if (card.value == 14) {		
-        j = "ace";
-      
-    }
-    return j;
-}
-    this.img.src = `/images/ ${j}_of_${game.playerHand.suit}.png`;
-    src = getElementById("image");
-    src.appendChild(this.img);
+            let playerHanD = document.querySelector("div#playerHand");
+            while (playerHanD.firstChild) {
+                console.log("removing child from player hand")
+                playerHanD.removeChild(playerHanD.firstChild);
+            }
 
-    //dealerHand
+            let imgPlayer = document.createElement("img");
 
-    let dealerHanD = document.querySelector("div#dealerHand");
-    while (dealerHanD.firstChild){
-        dealerHanD.removeChild(dealerHanD.firstChild);
-    }
+            for (card of game.playerHand) {
+                let j = card.value;
+                if (card.value == 11) {
+                    j = "jack";
 
-    this.img = document.createElement("img");
-    
-for(card of game.dealerHand){
-    let k = card.value;
-    if (card.value == 11) {
-        k = "jack";
-       
-    }
-    else if (card.value == 12) {
-        k = "queen";
-     
-    }
-    else if (card.value == 13) {
-        k = "king";
-        
-    } 
-    if (card.value == 14) {		
-        k = "ace";
-      
-        
-    }
-    return k;
-}
-    this.img.src = `/images/ ${j}_of_${game.dealerHand.suit}.png`;
-    src = getElementById("image");
-    src.appendChild(this.img);
-   
-    let textStuff = document.querySelector("div.text")
-    let p = document.createElement('p');
-    p.textContent = `game state: ${game.winner} ${game.message}`;
-    textStuff.appendChild(p);
+                }
+                else if (card.value == 12) {
+                    j = "queen";
+
+                }
+                else if (card.value == 13) {
+                    j = "king";
+
+                }
+                if (card.value == 14) {
+                    j = "ace";
+
+                }
+
+                imgPlayer.src = `/images/${j}_of_${card.suit}.png`;
+                imgPlayer.setAttribute("width", 100);
+                imgPlayer.setAttribute("height", 150);
+                console.log(imgPlayer.src);
+                playerHanD.appendChild(imgPlayer);
+            }
+
+
+            //dealerHand
+            console.log(game.dealerHand);
+
+            let dealerHanD = document.querySelector("div#dealerHand");
+            while (dealerHanD.firstChild) {
+                console.log("removing child from dealer hand")
+                dealerHanD.removeChild(dealerHanD.firstChild);
+            }
+
+            let imgDealer = document.createElement("img");
+
+            for (card of game.dealerHand) {
+                let k = card.value;
+                if (card.value == 11) {
+                    k = "jack";
+
+                }
+                else if (card.value == 12) {
+                    k = "queen";
+
+                }
+                else if (card.value == 13) {
+                    k = "king";
+
+                }
+                if (card.value == 14) {
+                    k = "ace";
+
+
+                }
+
+                imgDealer.src = `/images/${k}_of_${card.suit}.png`;
+                imgDealer.setAttribute("width", 100);
+                imgDealer.setAttribute("height", 150);
+                console.log(imgDealer.src);
+                dealerHanD.appendChild(imgDealer);
+            }
+
+
+            let textStuff = document.querySelector("#gameState")
+            textStuff.textContent = `game state: winner: ${game.winner} message: ${game.message}`;
+        })
 }
 
 const start = document.getElementById("startGame");

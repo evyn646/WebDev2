@@ -1,5 +1,5 @@
-body {color:white;font-family:'Times New Roman', Times, serif;background-color: green;}
-p {height: 50px;}
+body {color:white;font-family:'Times New Roman', Times, serif;background-color: purple;}
+p {height: 50px; color:white;font-family:'Times New Roman', Times, serif;}
 
 .flexContainer {
     display: flex; 
@@ -24,7 +24,7 @@ p {height: 50px;}
   justify-content: start; 
   flex-direction: row;
   flex-wrap: wrap;
-  width: 50%
+  width: 50%;
 }
 
 #dealerHand{
@@ -32,15 +32,10 @@ p {height: 50px;}
   justify-content: start; 
   flex-direction: row;
   flex-wrap: wrap;
-  width: 50%
+  width: 50%;
 }
 
 h1 {display: flex; justify-content: center;}
-
-.image{
-    width: 100px;
-    height: 150px;
-}
 
 #startGame{
   border: solid 5px gray;
@@ -67,15 +62,15 @@ h1 {display: flex; justify-content: center;}
 }
 
 #startGame:hover{
-  background-color: red
+  background-color: yellow
 }
 
 #hit:hover{
-  background-color: red
+  background-color: yellow
 }
 
 #stand:hover{
-  background-color: red
+  background-color: yellow
 }
 
 

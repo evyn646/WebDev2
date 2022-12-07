@@ -1,5 +1,7 @@
 body {color:white;font-family:'Times New Roman', Times, serif;background-color: purple;}
-p {height: 50px; color:white;font-family:'Times New Roman', Times, serif;}
+p {height: 50px}
+h1 {display: flex; justify-content: center;}
+h2 {color:white;font-family:'Times New Roman', Times, serif;}
 
 .flexContainer {
     display: flex; 
@@ -35,7 +37,13 @@ p {height: 50px; color:white;font-family:'Times New Roman', Times, serif;}
   width: 50%;
 }
 
-h1 {display: flex; justify-content: center;}
+#gameState {
+  display: flex; 
+  justify-content: center;
+  color:white;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 20px;
+}
 
 #startGame{
   border: solid 5px gray;

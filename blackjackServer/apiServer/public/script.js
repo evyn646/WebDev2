@@ -85,7 +85,7 @@ function startButton() {
 
 
             let textStuff = document.querySelector("#gameState")
-            textStuff.textContent = `game state: winner: ${game.winner} message: ${game.message}`;
+            textStuff.textContent = `WINNER: ${game.winner} MESSAGE: ${game.message}`;
         })
 
 }
@@ -174,7 +174,7 @@ function hitButton() {
 
 
             let textStuff = document.querySelector("#gameState")
-            textStuff.textContent = `game state: winner: ${game.winner} message: ${game.message}`;
+            textStuff.textContent = `WINNER: ${game.winner} MESSAGE: ${game.message}`;
         })
 }
 
@@ -262,7 +262,7 @@ function standButton() {
 
 
             let textStuff = document.querySelector("#gameState")
-            textStuff.textContent = `game state: winner: ${game.winner} message: ${game.message}`;
+            textStuff.textContent = `WINNER: ${game.winner} MESSAGE: ${game.message}`;
         })
 }
 
